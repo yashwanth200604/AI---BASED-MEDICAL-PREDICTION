@@ -599,10 +599,22 @@ async function loadModel() {
 
     try {
 
-        const response =
-            await fetch("../ml/model.json");
+        const modelPaths = [
+            "./model.json",
+            "../ml/model.json"
+        ];
 
-        if (!response.ok) {
+        let response = null;
+
+        for (const modelPath of modelPaths) {
+            response = await fetch(modelPath);
+
+            if (response.ok) {
+                break;
+            }
+        }
+
+        if (!response || !response.ok) {
 
             throw new Error(
                 "Unable to load model.json"
