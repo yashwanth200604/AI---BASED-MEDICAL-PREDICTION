@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MedScopeAI | AI Medical Symptom Analysis</title>
+
+    <meta
+        name="description"
+        content="MedScopeAI is an educational AI-powered symptom analysis project using machine learning."
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+    <header class="navbar">
+        <div class="nav-container">
+
+            <a href="#home" class="brand">
+                <span class="brand-icon">✚</span>
+                <span>MedScope<span>AI</span></span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#predictor">Predictor</a>
+                <a href="#results">Results</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#safety">Safety</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <main>
+
+        <section id="home" class="hero">
+
+            <div class="hero-container">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        AI-POWERED SYMPTOM ANALYSIS
+                    </div>
+
+                    <h1>
+                        Turn a cluster of symptoms
+                        <span>into a clearer picture.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        MedScopeAI uses a machine-learning model to analyze
+                        selected symptoms and provide an educational health
+                        assessment.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#predictor" class="btn btn-primary">
+                            Start Analysis
+                        </a>
+
+                        <a href="#how-it-works" class="btn btn-secondary">
+                            Explore AI
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <div class="hero-card">
+
+                    <div class="ai-card-top">
+                        <span class="status-dot"></span>
+                        AI MODEL READY
+                    </div>
+
+                    <div class="hero-card-icon">
+                        ✚
+                    </div>
+
+                    <h3>
+                        Intelligent Symptom Analysis
+                    </h3>
+
+                    <p>
+                        Select your symptoms and let the model identify
+                        the strongest symptom pattern.
+                    </p>
+
+                    <div class="mini-stats">
+
+                        <div>
+                            <strong>10</strong>
+                            <span>Conditions</span>
+                        </div>
+
+                        <div>
+                            <strong>15</strong>
+                            <span>Symptoms</span>
+                        </div>
+
+                        <div>
+                            <strong>ML</strong>
+                            <span>Model</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PREDICTOR
+        ========================== -->
+        <section id="predictor" class="section predictor-section">
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    SYMPTOM ANALYSIS
+                </div>
+
+                <h2>
+                    Tell the AI what you're experiencing.
+                </h2>
+
+                <p>
+                    Select all symptoms that apply. You do not need to
+                    choose a primary symptom — the AI will determine
+                    the primary and notable symptoms automatically.
+                </p>
+
+            </div>
+
+
+            <div class="predictor-layout">
+
+                <!-- Symptoms -->
+                <div class="symptom-panel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <span class="panel-number">01</span>
+                            <h3>Select Symptoms</h3>
+                        </div>
+
+                        <span id="selectedCount" class="count-badge">
+                            0 selected
+                        </span>
+                    </div>
+
+                    <p class="panel-description">
+                        Choose every symptom that is currently relevant.
+                    </p>
+
+                    <div
+                        id="symptomGrid"
+                        class="symptom-grid"
+                    ></div>
+
+
+                    <div class="selection-actions">
+
+                        <button
+                            id="analyseButton"
+                            class="btn btn-primary analyse-btn"
+                            type="button"
+                        >
+                            Analyse Symptoms
+                        </button>
+
+                        <button
+                            id="resetButton"
+                            class="btn btn-light"
+                            type="button"
+                        >
+                            Reset
+                        </button>
+
+                    </div>
+
+                    <div
+                        id="inputMessage"
+                        class="input-message"
+                        aria-live="polite"
+                    ></div>
+
+                </div>
+
+
+                <!-- Binary vector -->
+                <aside class="binary-panel">
+
+                    <div class="binary-icon">
+                        01
+                    </div>
+
+                    <h3>
+                        Binary Symptom Pattern
+                    </h3>
+
+                    <p>
+                        Your selected symptoms are converted into a
+                        binary vector for the machine-learning model.
+                    </p>
+
+                    <div
+                        id="binaryVector"
+                        class="binary-vector"
+                    >
+                        000000000000000
+                    </div>
+
+                    <div class="binary-legend">
+
+                        <div>
+                            <span class="binary-one">1</span>
+                            Symptom selected
+                        </div>
+
+                        <div>
+                            <span class="binary-zero">0</span>
+                            Symptom not selected
+                        </div>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             RESULTS
+        ========================== -->
+        <section id="results" class="section results-section">
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    AI ANALYSIS
+                </div>
+
+                <h2>
+                    Your analysis appears here.
+                </h2>
+
+                <p>
+                    The model analyzes the symptom pattern and identifies
+                    the strongest matching condition.
+                </p>
+
+            </div>
+
+
+            <div
+                id="resultEmpty"
+                class="result-empty"
+            >
+                <div class="empty-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Waiting for symptom analysis
+                </h3>
+
+                <p>
+                    Select symptoms above and click
+                    <strong>Analyse Symptoms</strong>.
+                </p>
+            </div>
+
+
+            <div
+                id="resultContent"
+                class="result-content hidden"
+            >
+
+                <!-- Prediction -->
+                <div class="prediction-card">
+
+                    <div class="prediction-label">
+                        AI PREDICTED CONDITION
+                    </div>
+
+                    <h3 id="predictedDisease">
+                        —
+                    </h3>
+
+                    <p id="predictionDescription">
+                        —
+                    </p>
+
+                    <div class="confidence-area">
+
+                        <div class="confidence-header">
+                            <span>Educational pattern confidence</span>
+                            <strong id="confidenceValue">
+                                —
+                            </strong>
+                        </div>
+
+                        <div class="confidence-bar">
+                            <div
+                                id="confidenceFill"
+                                class="confidence-fill"
+                            ></div>
+                        </div>
+
+                        <small>
+                            This is a model-based pattern estimate,
+                            not a clinical probability.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Key symptoms -->
+                <div class="key-symptoms-grid">
+
+                    <div class="key-symptom-card primary-card">
+
+                        <div class="key-card-icon">
+                            ★
+                        </div>
+
+                        <span class="key-card-label">
+                            PRIMARY SYMPTOM
+                        </span>
+
+                        <h3 id="primarySymptom">
+                            —
+                        </h3>
+
+                        <p>
+                            Automatically identified by the AI based
+                            on the predicted condition and your
+                            selected symptoms.
+                        </p>
+
+                    </div>
+
+
+                    <div class="key-symptom-card notable-card">
+
+                        <div class="key-card-icon">
+                            !
+                        </div>
+
+                        <span class="key-card-label">
+                            NOTABLE SYMPTOM
+                        </span>
+
+                        <h3 id="notableSymptom">
+                            —
+                        </h3>
+
+                        <p>
+                            Another significant symptom detected
+                            within your selected symptom pattern.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Analysis details -->
+                <div class="analysis-grid">
+
+                    <div class="analysis-card">
+
+                        <span class="card-label">
+                            DETECTED SYMPTOMS
+                        </span>
+
+                        <div
+                            id="detectedSymptoms"
+                            class="detected-symptoms"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="analysis-card">
+
+                        <span class="card-label">
+                            BINARY VECTOR
+                        </span>
+
+                        <div
+                            id="resultBinaryVector"
+                            class="result-binary"
+                        >
+                            —
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AI explanation -->
+                <div class="explanation-card">
+
+                    <div class="explanation-header">
+                        <div class="explanation-icon">
+                            AI
+                        </div>
+
+                        <div>
+                            <span class="card-label">
+                                AI EXPLANATION
+                            </span>
+
+                            <h3>
+                                Why this pattern was identified
+                            </h3>
+                        </div>
+                    </div>
+
+                    <p id="aiExplanation">
+                        —
+                    </p>
+
+                </div>
+
+
+                <!-- General care -->
+                <div class="care-grid">
+
+                    <div class="care-card">
+
+                        <span class="card-label">
+                            GENERAL CARE GUIDANCE
+                        </span>
+
+                        <h3>
+                            Educational guidance
+                        </h3>
+
+                        <ul id="careGuidance"></ul>
+
+                    </div>
+
+
+                    <div class="warning-card">
+
+                        <span class="card-label">
+                            WARNING SIGNS
+                        </span>
+
+                        <h3>
+                            When to seek medical attention
+                        </h3>
+
+                        <ul id="warningSigns"></ul>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Report -->
+                <div class="report-action-card">
+
+                    <div>
+                        <span class="card-label">
+                            MEDICAL REPORT
+                        </span>
+
+                        <h3>
+                            Create a clean analysis report
+                        </h3>
+
+                        <p>
+                            Generate a report formatted specifically
+                            for printing or saving as a PDF.
+                        </p>
+                    </div>
+
+                    <button
+                        id="reportButton"
+                        class="btn btn-primary"
+                        type="button"
+                    >
+                        Generate Medical Report
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             HOW IT WORKS
+        ========================== -->
+        <section
+            id="how-it-works"
+            class="section process-section"
+        >
+
+            <div class="section-heading">
+
+                <div class="eyebrow">
+                    THE TECHNOLOGY
+                </div>
+
+                <h2>
+                    How MedScopeAI works.
+                </h2>
+
+                <p>
+                    A simple machine-learning pipeline converts symptoms
+                    into a structured prediction.
+                </p>
+
+            </div>
+
+
+            <div class="process-grid">
+
+                <div class="process-card">
+
+                    <span>01</span>
+
+                    <h3>
+                        Symptoms
+                    </h3>
+
+                    <p>
+                        The user selects symptoms from the available
+                        symptom set.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <span>02</span>
+
+                    <h3>
+                        Binary Encoding
+                    </h3>
+
+                    <p>
+                        Each symptom becomes either 1 or 0 depending
+                        on whether it was selected.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <span>03</span>
+
+                    <h3>
+                        ML Prediction
+                    </h3>
+
+                    <p>
+                        A trained Decision Tree analyzes the binary
+                        symptom pattern.
+                    </p>
+
+                </div>
+
+
+                <div class="process-card">
+
+                    <span>04</span>
+
+                    <h3>
+                        AI Report
+                    </h3>
+
+                    <p>
+                        The result is transformed into an educational
+                        analysis report.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SAFETY
+        ========================== -->
+        <section id="safety" class="section safety-section">
+
+            <div class="safety-container">
+
+                <div class="safety-icon">
+                    !
+                </div>
+
+                <div>
+
+                    <div class="eyebrow">
+                        IMPORTANT SAFETY NOTICE
+                    </div>
+
+                    <h2>
+                        This project is educational.
+                    </h2>
+
+                    <p>
+                        MedScopeAI is a machine-learning demonstration
+                        and is not a medical diagnostic system. Its
+                        predictions should not be treated as a confirmed
+                        diagnosis or personalized medical prescription.
+                    </p>
+
+                    <p>
+                        If you have severe, worsening, unusual, or
+                        emergency symptoms, seek appropriate medical
+                        attention from a qualified healthcare professional.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="brand footer-brand">
+                <span class="brand-icon">✚</span>
+                <span>MedScope<span>AI</span></span>
+            </div>
+
+            <p>
+                AI-assisted educational symptom analysis.
+            </p>
+
+            <span>
+                © 2026 MedScopeAI
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================
+         PRINT-ONLY MEDICAL REPORT
+    ========================== -->
+    <section
+        id="printReport"
+        class="print-report"
+        aria-hidden="true"
+    >
+
+        <div class="report-header">
+
+            <div class="report-brand">
+                <span class="report-logo">✚</span>
+
+                <div>
+                    <h1>MedScopeAI</h1>
+                    <p>AI Medical Analysis Report</p>
+                </div>
+            </div>
+
+            <div class="report-meta">
+                <p>
+                    <strong>Report ID:</strong>
+                    <span id="reportId">—</span>
+                </p>
+
+                <p>
+                    <strong>Date:</strong>
+                    <span id="reportDate">—</span>
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="report-divider"></div>
+
+
+        <div class="report-section">
+
+            <h2>AI Analysis</h2>
+
+            <div class="report-highlight">
+
+                <span>Predicted Condition</span>
+
+                <strong id="reportDisease">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="report-two-column">
+
+            <div class="report-box">
+
+                <span>
+                    Primary Symptom
+                </span>
+
+                <strong id="reportPrimary">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="report-box">
+
+                <span>
+                    Notable Symptom
+                </span>
+
+                <strong id="reportNotable">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="report-section">
+
+            <h2>Symptom Summary</h2>
+
+            <p>
+                <strong>Detected Symptoms:</strong>
+            </p>
+
+            <div
+                id="reportSymptoms"
+                class="report-symptoms"
+            ></div>
+
+            <p class="report-binary-line">
+                <strong>Binary Symptom Vector:</strong>
+                <span id="reportBinary">—</span>
+            </p>
+
+        </div>
+
+
+        <div class="report-section">
+
+            <h2>Pattern Analysis</h2>
+
+            <p id="reportExplanation">
+                —
+            </p>
+
+            <div class="report-confidence">
+                <strong>
+                    Educational Pattern Confidence:
+                </strong>
+
+                <span id="reportConfidence">
+                    —
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="report-section">
+
+            <h2>General Care Guidance</h2>
+
+            <ul id="reportCare"></ul>
+
+        </div>
+
+
+        <div class="report-section report-warning-section">
+
+            <h2>Warning Signs</h2>
+
+            <ul id="reportWarnings"></ul>
+
+        </div>
+
+
+        <div class="report-notice">
+
+            <h3>
+                Important Notice
+            </h3>
+
+            <p>
+                This report is an AI-generated educational assessment
+                based on the selected symptoms. It is not a medical
+                diagnosis, medical prescription, or substitute for
+                professional medical advice.
+            </p>
+
+            <p>
+                If symptoms are severe, worsening, unusual, or
+                potentially life-threatening, seek appropriate
+                medical attention immediately.
+            </p>
+
+        </div>
+
+
+        <div class="report-footer">
+
+            <span>
+                MedScopeAI
+            </span>
+
+            <span>
+                AI-assisted educational health analysis
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1124 @@
+{
+  "project": "MedScopeAI",
+  "model": "DecisionTreeClassifier",
+  "version": "1.0",
+  "educational_only": true,
+  "clinical_accuracy": false,
+  "symptoms": [
+    {
+      "key": "fever",
+      "name": "Fever"
+    },
+    {
+      "key": "cough",
+      "name": "Cough"
+    },
+    {
+      "key": "fatigue",
+      "name": "Fatigue"
+    },
+    {
+      "key": "headache",
+      "name": "Headache"
+    },
+    {
+      "key": "sore_throat",
+      "name": "Sore throat"
+    },
+    {
+      "key": "shortness_of_breath",
+      "name": "Shortness of breath"
+    },
+    {
+      "key": "chest_pain",
+      "name": "Chest pain"
+    },
+    {
+      "key": "nausea",
+      "name": "Nausea"
+    },
+    {
+      "key": "vomiting",
+      "name": "Vomiting"
+    },
+    {
+      "key": "diarrhea",
+      "name": "Diarrhea"
+    },
+    {
+      "key": "abdominal_pain",
+      "name": "Abdominal pain"
+    },
+    {
+      "key": "joint_pain",
+      "name": "Joint pain"
+    },
+    {
+      "key": "skin_rash",
+      "name": "Skin rash"
+    },
+    {
+      "key": "frequent_urination",
+      "name": "Frequent urination"
+    },
+    {
+      "key": "excessive_thirst",
+      "name": "Excessive thirst"
+    }
+  ],
+  "classes": [
+    "Arthritis",
+    "Chickenpox",
+    "Common Cold",
+    "Food Poisoning",
+    "Gastroenteritis",
+    "Influenza",
+    "Migraine",
+    "Pneumonia",
+    "Type 2 Diabetes",
+    "Urinary Tract Infection"
+  ],
+  "diseases": {
+    "2": {
+      "name": "Common Cold",
+      "primary_symptom": "sore_throat",
+      "symptoms": [
+        "sore_throat",
+        "cough",
+        "fatigue",
+        "headache"
+      ],
+      "explanation": "The selected symptom pattern contains features commonly associated with a common cold in this educational model.",
+      "guidance": "General supportive care may include rest, adequate fluids and monitoring symptoms. Consider professional medical advice if symptoms become severe or persistent.",
+      "warning": "Seek medical attention for severe breathing difficulty, chest pain, confusion, dehydration or rapidly worsening symptoms."
+    },
+    "5": {
+      "name": "Influenza",
+      "primary_symptom": "fever",
+      "symptoms": [
+        "fever",
+        "cough",
+        "fatigue",
+        "headache",
+        "sore_throat"
+      ],
+      "explanation": "The model identified a pattern containing fever together with respiratory and systemic symptoms.",
+      "guidance": "Rest, fluids and symptom monitoring are general supportive measures. A healthcare professional can determine whether testing or treatment is appropriate.",
+      "warning": "Seek urgent medical attention for severe breathing problems, chest pain, confusion, severe dehydration or significant deterioration."
+    },
+    "7": {
+      "name": "Pneumonia",
+      "primary_symptom": "shortness_of_breath",
+      "symptoms": [
+        "shortness_of_breath",
+        "cough",
+        "fever",
+        "chest_pain",
+        "fatigue"
+      ],
+      "explanation": "The selected pattern contains respiratory features that the educational model associates with pneumonia.",
+      "guidance": "Respiratory symptoms should be evaluated by a healthcare professional when pneumonia is suspected.",
+      "warning": "Shortness of breath, chest pain, blue or grey lips, confusion or rapidly worsening symptoms require urgent medical attention."
+    },
+    "6": {
+      "name": "Migraine",
+      "primary_symptom": "headache",
+      "symptoms": [
+        "headache",
+        "nausea",
+        "fatigue"
+      ],
+      "explanation": "The model detected a headache-centred symptom pattern with associated nausea or fatigue.",
+      "guidance": "Resting in a quiet environment, staying hydrated and tracking recurring headache patterns can be useful. Consult a healthcare professional for recurrent or severe headaches.",
+      "warning": "Seek urgent medical attention for a sudden extremely severe headache, neurological changes, fainting or severe vomiting."
+    },
+    "4": {
+      "name": "Gastroenteritis",
+      "primary_symptom": "diarrhea",
+      "symptoms": [
+        "diarrhea",
+        "nausea",
+        "vomiting",
+        "abdominal_pain",
+        "fatigue"
+      ],
+      "explanation": "The selected symptoms form a digestive pattern that the educational model associates with gastroenteritis.",
+      "guidance": "Maintaining hydration is important when vomiting or diarrhea occurs. Medical advice may be needed if symptoms are persistent or severe.",
+      "warning": "Seek care for severe dehydration, blood in stool or vomit, persistent vomiting, severe abdominal pain or worsening symptoms."
+    },
+    "3": {
+      "name": "Food Poisoning",
+      "primary_symptom": "vomiting",
+      "symptoms": [
+        "vomiting",
+        "nausea",
+        "diarrhea",
+        "abdominal_pain"
+      ],
+      "explanation": "The model identified a gastrointestinal symptom pattern containing vomiting and digestive symptoms.",
+      "guidance": "Hydration and monitoring are important. A healthcare professional can assess persistent or severe gastrointestinal symptoms.",
+      "warning": "Seek medical attention for severe dehydration, blood in vomit or stool, severe abdominal pain, confusion or persistent vomiting."
+    },
+    "8": {
+      "name": "Type 2 Diabetes",
+      "primary_symptom": "excessive_thirst",
+      "symptoms": [
+        "excessive_thirst",
+        "frequent_urination",
+        "fatigue"
+      ],
+      "explanation": "The model detected metabolic-related symptom signals including increased thirst and urination.",
+      "guidance": "These symptoms can have multiple causes. A healthcare professional can perform appropriate testing such as blood glucose assessment.",
+      "warning": "Seek prompt medical care for severe weakness, confusion, vomiting, difficulty breathing or significant deterioration."
+    },
+    "9": {
+      "name": "Urinary Tract Infection",
+      "primary_symptom": "frequent_urination",
+      "symptoms": [
+        "frequent_urination",
+        "abdominal_pain",
+        "fatigue"
+      ],
+      "explanation": "The model detected urinary and lower abdominal symptom signals associated with the educational UTI pattern.",
+      "guidance": "A suspected urinary infection should be evaluated by a healthcare professional, particularly if symptoms persist or worsen.",
+      "warning": "Seek medical attention for fever with urinary symptoms, back or side pain, vomiting or worsening condition."
+    },
+    "1": {
+      "name": "Chickenpox",
+      "primary_symptom": "skin_rash",
+      "symptoms": [
+        "skin_rash",
+        "fever",
+        "fatigue",
+        "headache"
+      ],
+      "explanation": "The model identified a skin-rash pattern with associated systemic symptoms.",
+      "guidance": "Skin rashes should be evaluated in context, especially when accompanied by fever or other systemic symptoms.",
+      "warning": "Seek medical attention if the rash is rapidly worsening, associated with breathing problems, severe illness or neurological symptoms."
+    },
+    "0": {
+      "name": "Arthritis",
+      "primary_symptom": "joint_pain",
+      "symptoms": [
+        "joint_pain",
+        "fatigue"
+      ],
+      "explanation": "The model identified a joint-pain centred pattern with possible associated fatigue.",
+      "guidance": "Persistent or recurring joint pain should be evaluated by a healthcare professional to determine its underlying cause.",
+      "warning": "Seek medical attention for severe swelling, sudden inability to use a joint, high fever or rapidly worsening symptoms."
+    }
+  },
+  "tree": {
+    "feature_index": 3,
+    "threshold": 0.5,
+    "left": {
+      "feature_index": 10,
+      "threshold": 0.5,
+      "left": {
+        "feature_index": 6,
+        "threshold": 0.5,
+        "left": {
+          "feature_index": 14,
+          "threshold": 0.5,
+          "left": {
+            "feature_index": 11,
+            "threshold": 0.5,
+            "left": {
+              "feature_index": 0,
+              "threshold": 0.5,
+              "left": {
+                "feature_index": 2,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 9,
+                  "threshold": 0.5,
+                  "left": {
+                    "leaf_class": 2
+                  },
+                  "right": {
+                    "feature_index": 8,
+                    "threshold": 0.5,
+                    "left": {
+                      "leaf_class": 3
+                    },
+                    "right": {
+                      "leaf_class": 3
+                    }
+                  }
+                },
+                "right": {
+                  "feature_index": 7,
+                  "threshold": 0.5,
+                  "left": {
+                    "feature_index": 4,
+                    "threshold": 0.5,
+                    "left": {
+                      "feature_index": 13,
+                      "threshold": 0.5,
+                      "left": {
+                        "leaf_class": 0
+                      },
+                      "right": {
+                        "leaf_class": 9
+                      }
+                    },
+                    "right": {
+                      "leaf_class": 2
+                    }
+                  },
+                  "right": {
+                    "feature_index": 9,
+                    "threshold": 0.5,
+                    "left": {
+                      "feature_index": 8,
+                      "threshold": 0.5,
+                      "left": {
+                        "leaf_class": 6
+                      },
+                      "right": {
+                        "leaf_class": 6
+                      }
+                    },
+                    "right": {
+                      "feature_index": 8,
+                      "threshold": 0.5,
+                      "left": {
+                        "leaf_class": 4
+                      },
+                      "right": {
+                        "leaf_class": 4
+                      }
+                    }
+                  }
+                }
+              },
+              "right": {
+                "feature_index": 12,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 5,
+                  "threshold": 0.5,
+                  "left": {
+                    "feature_index": 4,
+                    "threshold": 0.5,
+                    "left": {
+                      "feature_index": 13,
+                      "threshold": 0.5,
+                      "left": {
+                        "leaf_class": 1
+                      },
+                      "right": {
+                        "leaf_class": 8
+                      }
+                    },
+                    "right": {
+                      "feature_index": 2,
+                      "threshold": 0.5,
+                      "left": {
+                        "leaf_class": 5
+                      },
+                      "right": {
+                        "leaf_class": 5
+                      }
+                    }
+                  },
+                  "right": {
+                    "feature_index": 2,
+                    "threshold": 0.5,
+                    "left": {
+                      "leaf_class": 7
+                    },
+                    "right": {
+                      "leaf_class": 7
+                    }
+                  }
+                },
+                "right": {
+                  "feature_index": 4,
+                  "threshold": 0.5,
+                  "left": {
+                    "feature_index": 5,
+                    "threshold": 0.5,
+                    "left": {
+                      "leaf_class": 1
+                    },
+                    "right": {
+                      "leaf_class": 1
+                    }
+                  },
+                  "right": {
+                    "leaf_class": 1
+                  }
+                }
+              }
+            },
+            "right": {
+              "feature_index": 13,
+              "threshold": 0.5,
+              "left": {
+                "feature_index": 1,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 7,
+                  "threshold": 0.5,
+                  "left": {
+                    "feature_index": 5,
+                    "threshold": 0.5,
+                    "left": {
+                      "feature_index": 4,
+                      "threshold": 0.5,
+                      "left": {
+                        "leaf_class": 0
+                      },
+                      "right": {
+                        "leaf_class": 0
+                      }
+                    },
+                    "right": {
+                      "leaf_class": 0
+                    }
+                  },
+                  "right": {
+                    "leaf_class": 0
+                  }
+                },
+                "right": {
+                  "leaf_class": 0
+                }
+              },
+              "right": {
+                "leaf_class": 0
+              }
+            }
+          },
+          "right": {
+            "feature_index": 13,
+            "threshold": 0.5,
+            "left": {
+              "feature_index": 11,
+              "threshold": 0.5,
+              "left": {
+                "feature_index": 9,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 0,
+                  "threshold": 0.5,
+                  "left": {
+                    "feature_index": 4,
+                    "threshold": 0.5,
+                    "left": {
+                      "leaf_class": 8
+                    },
+                    "right": {
+                      "leaf_class": 8
+                    }
+                  },
+                  "right": {
+                    "leaf_class": 5
+                  }
+                },
+                "right": {
+                  "leaf_class": 3
+                }
+              },
+              "right": {
+                "leaf_class": 0
+              }
+            },
+            "right": {
+              "feature_index": 7,
+              "threshold": 0.5,
+              "left": {
+                "feature_index": 11,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 0,
+                  "threshold": 0.5,
+                  "left": {
+                    "feature_index": 2,
+                    "threshold": 0.5,
+                    "left": {
+                      "leaf_class": 8
+                    },
+                    "right": {
+                      "feature_index": 4,
+                      "threshold": 0.5,
+                      "left": {
+                        "leaf_class": 8
+                      },
+                      "right": {
+                        "leaf_class": 8
+                      }
+                    }
+                  },
+                  "right": {
+                    "leaf_class": 8
+                  }
+                },
+                "right": {
+                  "leaf_class": 8
+                }
+              },
+              "right": {
+                "leaf_class": 8
+              }
+            }
+          }
+        },
+        "right": {
+          "feature_index": 1,
+          "threshold": 0.5,
+          "left": {
+            "feature_index": 5,
+            "threshold": 0.5,
+            "left": {
+              "feature_index": 11,
+              "threshold": 0.5,
+              "left": {
+                "feature_index": 14,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 7,
+                  "threshold": 0.5,
+                  "left": {
+                    "leaf_class": 7
+                  },
+                  "right": {
+                    "leaf_class": 4
+                  }
+                },
+                "right": {
+                  "leaf_class": 8
+                }
+              },
+              "right": {
+                "leaf_class": 0
+              }
+            },
+            "right": {
+              "leaf_class": 7
+            }
+          },
+          "right": {
+            "feature_index": 5,
+            "threshold": 0.5,
+            "left": {
+              "feature_index": 0,
+              "threshold": 0.5,
+              "left": {
+                "leaf_class": 7
+              },
+              "right": {
+                "leaf_class": 7
+              }
+            },
+            "right": {
+              "leaf_class": 7
+            }
+          }
+        }
+      },
+      "right": {
+        "feature_index": 13,
+        "threshold": 0.5,
+        "left": {
+          "feature_index": 2,
+          "threshold": 0.5,
+          "left": {
+            "feature_index": 7,
+            "threshold": 0.5,
+            "left": {
+              "feature_index": 9,
+              "threshold": 0.5,
+              "left": {
+                "feature_index": 8,
+                "threshold": 0.5,
+                "left": {
+                  "leaf_class": 9
+                },
+                "right": {
+                  "leaf_class": 3
+                }
+              },
+              "right": {
+                "leaf_class": 3
+              }
+            },
+            "right": {
+              "feature_index": 9,
+              "threshold": 0.5,
+              "left": {
+                "feature_index": 4,
+                "threshold": 0.5,
+                "left": {
+                  "leaf_class": 3
+                },
+                "right": {
+                  "leaf_class": 3
+                }
+              },
+              "right": {
+                "feature_index": 1,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 6,
+                  "threshold": 0.5,
+                  "left": {
+                    "feature_index": 11,
+                    "threshold": 0.5,
+                    "left": {
+                      "feature_index": 4,
+                      "threshold": 0.5,
+                      "left": {
+                        "leaf_class": 3
+                      },
+                      "right": {
+                        "leaf_class": 3
+                      }
+                    },
+                    "right": {
+                      "leaf_class": 3
+                    }
+                  },
+                  "right": {
+                    "leaf_class": 3
+                  }
+                },
+                "right": {
+                  "leaf_class": 3
+                }
+              }
+            }
+          },
+          "right": {
+            "feature_index": 7,
+            "threshold": 0.5,
+            "left": {
+              "feature_index": 11,
+              "threshold": 0.5,
+              "left": {
+                "feature_index": 8,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 1,
+                  "threshold": 0.5,
+                  "left": {
+                    "feature_index": 9,
+                    "threshold": 0.5,
+                    "left": {
+                      "leaf_class": 9
+                    },
+                    "right": {
+                      "leaf_class": 4
+                    }
+                  },
+                  "right": {
+                    "feature_index": 5,
+                    "threshold": 0.5,
+                    "left": {
+                      "leaf_class": 7
+                    },
+                    "right": {
+                      "leaf_class": 7
+                    }
+                  }
+                },
+                "right": {
+                  "feature_index": 9,
+                  "threshold": 0.5,
+                  "left": {
+                    "leaf_class": 4
+                  },
+                  "right": {
+                    "leaf_class": 4
+                  }
+                }
+              },
+              "right": {
+                "leaf_class": 0
+              }
+            },
+            "right": {
+              "feature_index": 8,
+              "threshold": 0.5,
+              "left": {
+                "feature_index": 9,
+                "threshold": 0.5,
+                "left": {
+                  "leaf_class": 7
+                },
+                "right": {
+                  "leaf_class": 4
+                }
+              },
+              "right": {
+                "feature_index": 14,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 1,
+                  "threshold": 0.5,
+                  "left": {
+                    "feature_index": 6,
+                    "threshold": 0.5,
+                    "left": {
+                      "feature_index": 12,
+                      "threshold": 0.5,
+                      "left": {
+                        "leaf_class": 4
+                      },
+                      "right": {
+                        "leaf_class": 4
+                      }
+                    },
+                    "right": {
+                      "leaf_class": 4
+                    }
+                  },
+                  "right": {
+                    "leaf_class": 4
+                  }
+                },
+                "right": {
+                  "leaf_class": 4
+                }
+              }
+            }
+          }
+        },
+        "right": {
+          "feature_index": 7,
+          "threshold": 0.5,
+          "left": {
+            "feature_index": 14,
+            "threshold": 0.5,
+            "left": {
+              "feature_index": 9,
+              "threshold": 0.5,
+              "left": {
+                "feature_index": 0,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 2,
+                  "threshold": 0.5,
+                  "left": {
+                    "leaf_class": 9
+                  },
+                  "right": {
+                    "feature_index": 6,
+                    "threshold": 0.5,
+                    "left": {
+                      "feature_index": 5,
+                      "threshold": 0.5,
+                      "left": {
+                        "leaf_class": 9
+                      },
+                      "right": {
+                        "leaf_class": 9
+                      }
+                    },
+                    "right": {
+                      "leaf_class": 9
+                    }
+                  }
+                },
+                "right": {
+                  "feature_index": 2,
+                  "threshold": 0.5,
+                  "left": {
+                    "leaf_class": 9
+                  },
+                  "right": {
+                    "leaf_class": 9
+                  }
+                }
+              },
+              "right": {
+                "feature_index": 8,
+                "threshold": 0.5,
+                "left": {
+                  "leaf_class": 9
+                },
+                "right": {
+                  "leaf_class": 3
+                }
+              }
+            },
+            "right": {
+              "leaf_class": 8
+            }
+          },
+          "right": {
+            "feature_index": 8,
+            "threshold": 0.5,
+            "left": {
+              "feature_index": 9,
+              "threshold": 0.5,
+              "left": {
+                "leaf_class": 9
+              },
+              "right": {
+                "leaf_class": 3
+              }
+            },
+            "right": {
+              "feature_index": 2,
+              "threshold": 0.5,
+              "left": {
+                "leaf_class": 3
+              },
+              "right": {
+                "leaf_class": 4
+              }
+            }
+          }
+        }
+      }
+    },
+    "right": {
+      "feature_index": 4,
+      "threshold": 0.5,
+      "left": {
+        "feature_index": 12,
+        "threshold": 0.5,
+        "left": {
+          "feature_index": 7,
+          "threshold": 0.5,
+          "left": {
+            "feature_index": 0,
+            "threshold": 0.5,
+            "left": {
+              "feature_index": 1,
+              "threshold": 0.5,
+              "left": {
+                "feature_index": 13,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 11,
+                  "threshold": 0.5,
+                  "left": {
+                    "feature_index": 10,
+                    "threshold": 0.5,
+                    "left": {
+                      "leaf_class": 6
+                    },
+                    "right": {
+                      "leaf_class": 9
+                    }
+                  },
+                  "right": {
+                    "leaf_class": 0
+                  }
+                },
+                "right": {
+                  "feature_index": 14,
+                  "threshold": 0.5,
+                  "left": {
+                    "feature_index": 10,
+                    "threshold": 0.5,
+                    "left": {
+                      "leaf_class": 1
+                    },
+                    "right": {
+                      "leaf_class": 9
+                    }
+                  },
+                  "right": {
+                    "leaf_class": 8
+                  }
+                }
+              },
+              "right": {
+                "feature_index": 6,
+                "threshold": 0.5,
+                "left": {
+                  "leaf_class": 2
+                },
+                "right": {
+                  "leaf_class": 2
+                }
+              }
+            },
+            "right": {
+              "feature_index": 1,
+              "threshold": 0.5,
+              "left": {
+                "leaf_class": 1
+              },
+              "right": {
+                "feature_index": 6,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 2,
+                  "threshold": 0.5,
+                  "left": {
+                    "leaf_class": 5
+                  },
+                  "right": {
+                    "leaf_class": 5
+                  }
+                },
+                "right": {
+                  "leaf_class": 7
+                }
+              }
+            }
+          },
+          "right": {
+            "feature_index": 8,
+            "threshold": 0.5,
+            "left": {
+              "feature_index": 1,
+              "threshold": 0.5,
+              "left": {
+                "feature_index": 10,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 0,
+                  "threshold": 0.5,
+                  "left": {
+                    "feature_index": 11,
+                    "threshold": 0.5,
+                    "left": {
+                      "feature_index": 9,
+                      "threshold": 0.5,
+                      "left": {
+                        "leaf_class": 6
+                      },
+                      "right": {
+                        "leaf_class": 6
+                      }
+                    },
+                    "right": {
+                      "leaf_class": 6
+                    }
+                  },
+                  "right": {
+                    "leaf_class": 6
+                  }
+                },
+                "right": {
+                  "leaf_class": 6
+                }
+              },
+              "right": {
+                "feature_index": 2,
+                "threshold": 0.5,
+                "left": {
+                  "leaf_class": 6
+                },
+                "right": {
+                  "leaf_class": 6
+                }
+              }
+            },
+            "right": {
+              "feature_index": 2,
+              "threshold": 0.5,
+              "left": {
+                "leaf_class": 3
+              },
+              "right": {
+                "feature_index": 10,
+                "threshold": 0.5,
+                "left": {
+                  "leaf_class": 6
+                },
+                "right": {
+                  "leaf_class": 4
+                }
+              }
+            }
+          }
+        },
+        "right": {
+          "feature_index": 7,
+          "threshold": 0.5,
+          "left": {
+            "feature_index": 1,
+            "threshold": 0.5,
+            "left": {
+              "feature_index": 11,
+              "threshold": 0.5,
+              "left": {
+                "feature_index": 0,
+                "threshold": 0.5,
+                "left": {
+                  "leaf_class": 1
+                },
+                "right": {
+                  "leaf_class": 1
+                }
+              },
+              "right": {
+                "feature_index": 0,
+                "threshold": 0.5,
+                "left": {
+                  "leaf_class": 0
+                },
+                "right": {
+                  "leaf_class": 1
+                }
+              }
+            },
+            "right": {
+              "feature_index": 0,
+              "threshold": 0.5,
+              "left": {
+                "leaf_class": 1
+              },
+              "right": {
+                "leaf_class": 1
+              }
+            }
+          },
+          "right": {
+            "feature_index": 0,
+            "threshold": 0.5,
+            "left": {
+              "leaf_class": 6
+            },
+            "right": {
+              "leaf_class": 1
+            }
+          }
+        }
+      },
+      "right": {
+        "feature_index": 0,
+        "threshold": 0.5,
+        "left": {
+          "feature_index": 1,
+          "threshold": 0.5,
+          "left": {
+            "feature_index": 7,
+            "threshold": 0.5,
+            "left": {
+              "feature_index": 13,
+              "threshold": 0.5,
+              "left": {
+                "leaf_class": 2
+              },
+              "right": {
+                "leaf_class": 8
+              }
+            },
+            "right": {
+              "leaf_class": 6
+            }
+          },
+          "right": {
+            "feature_index": 9,
+            "threshold": 0.5,
+            "left": {
+              "feature_index": 2,
+              "threshold": 0.5,
+              "left": {
+                "leaf_class": 2
+              },
+              "right": {
+                "feature_index": 7,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 5,
+                  "threshold": 0.5,
+                  "left": {
+                    "feature_index": 10,
+                    "threshold": 0.5,
+                    "left": {
+                      "feature_index": 13,
+                      "threshold": 0.5,
+                      "left": {
+                        "leaf_class": 2
+                      },
+                      "right": {
+                        "leaf_class": 2
+                      }
+                    },
+                    "right": {
+                      "leaf_class": 2
+                    }
+                  },
+                  "right": {
+                    "leaf_class": 2
+                  }
+                },
+                "right": {
+                  "leaf_class": 2
+                }
+              }
+            },
+            "right": {
+              "leaf_class": 2
+            }
+          }
+        },
+        "right": {
+          "feature_index": 12,
+          "threshold": 0.5,
+          "left": {
+            "feature_index": 6,
+            "threshold": 0.5,
+            "left": {
+              "feature_index": 7,
+              "threshold": 0.5,
+              "left": {
+                "feature_index": 1,
+                "threshold": 0.5,
+                "left": {
+                  "feature_index": 2,
+                  "threshold": 0.5,
+                  "left": {
+                    "leaf_class": 5
+                  },
+                  "right": {
+                    "leaf_class": 5
+                  }
+                },
+                "right": {
+                  "feature_index": 9,
+                  "threshold": 0.5,
+                  "left": {
+                    "feature_index": 8,
+                    "threshold": 0.5,
+                    "left": {
+                      "feature_index": 5,
+                      "threshold": 0.5,
+                      "left": {
+                        "leaf_class": 5
+                      },
+                      "right": {
+                        "leaf_class": 5
+                      }
+                    },
+                    "right": {
+                      "leaf_class": 5
+                    }
+                  },
+                  "right": {
+                    "leaf_class": 5
+                  }
+                }
+              },
+              "right": {
+                "leaf_class": 5
+              }
+            },
+            "right": {
+              "leaf_class": 5
+            }
+          },
+          "right": {
+            "feature_index": 1,
+            "threshold": 0.5,
+            "left": {
+              "leaf_class": 1
+            },
+            "right": {
+              "leaf_class": 5
+            }
+          }
+        }
+      }
+    }
+  }
+}
